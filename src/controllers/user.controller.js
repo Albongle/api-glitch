@@ -1,7 +1,7 @@
 const UserService = require('../services/user.service.js');
 
 module.exports = class UserController {
-    static getUserList = (req, res) => {
+    static getUserList(req, res) {
         let { count } = req.query;
         count = Number(count);
         if (Number.isNaN(count)) {
@@ -10,5 +10,5 @@ module.exports = class UserController {
 
         const users = UserService.getFakeUserList(count);
         res.status(200).json({ status: 200, data: users });
-    };
+    }
 };
