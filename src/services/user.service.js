@@ -1,11 +1,14 @@
-const UsersData = require('../data/users.json');
+const usersData = require('../data/users.json');
 
 module.exports = class UserService {
     static getFakeUserList(count) {
-        if (count <= UsersData.length) {
-            return UsersData.slice(0, count);
+        if (count > usersData.length) {
+            return [...usersData];
         }
-        const [firstElement] = UsersData;
+        if (count <= usersData.length) {
+            return usersData.slice(0, count);
+        }
+        const [firstElement] = usersData;
 
         return firstElement;
     }
